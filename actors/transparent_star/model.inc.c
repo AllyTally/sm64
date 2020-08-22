@@ -75,18 +75,26 @@ Gfx transparent_star_blue_starout_mesh_tri_0[] = {
 };
 
 
-Gfx mat_transparent_star_lambert57_material_f3d[] = {
+Gfx mat_transparent_star_lambert57_material_f3d_layer5[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(0, 0, ENVIRONMENT, ENVIRONMENT, 0, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, 0, 0, ENVIRONMENT, ENVIRONMENT, 0, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT),
+	gsDPSetCombineLERP(ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT),
+	gsDPSetRenderMode(G_RM_AA_ZB_XLU_SURF, G_RM_AA_ZB_OPA_SURF2),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetEnvColor(55, 74, 164, 127),
 	gsSPEndDisplayList(),
 };
 
+Gfx mat_revert_transparent_star_lambert57_material_f3d_layer5[] = {
+	gsDPPipeSync(),
+	gsDPSetRenderMode(G_RM_AA_ZB_XLU_SURF, G_RM_NOOP2),
+	gsSPEndDisplayList(),
+};
+
 
 Gfx transparent_star_blue_starout_mesh[] = {
-	gsSPDisplayList(mat_transparent_star_lambert57_material_f3d),
+	gsSPDisplayList(mat_transparent_star_lambert57_material_f3d_layer5),
 	gsSPDisplayList(transparent_star_blue_starout_mesh_tri_0),
+	gsSPDisplayList(mat_revert_transparent_star_lambert57_material_f3d_layer5),
 	gsSPEndDisplayList(),
 };
 
