@@ -227,7 +227,7 @@ Gfx star_obj_star_bmdout_mesh_tri_1[] = {
 
 Gfx mat_star_C__Users_Ally_Desktop_noesisv4428_star_body04_png_f3d[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(ENVIRONMENT, 0, TEXEL0, 0, 1, 0, TEXEL0, ENVIRONMENT, ENVIRONMENT, 0, TEXEL0, 0, 1, 0, TEXEL0, ENVIRONMENT),
+	gsDPSetCombineLERP(0, 0, 0, TEXEL0, 0, 0, 0, 1, 0, 0, 0, TEXEL0, 0, 0, 0, 1),
 	gsSPSetGeometryMode(G_TEXTURE_GEN),
 	gsSPTexture(1983, 1983, 0, 0, 1),
 	gsDPSetTextureLUT(G_TT_RGBA16),
@@ -245,7 +245,6 @@ Gfx mat_star_C__Users_Ally_Desktop_noesisv4428_star_body04_png_f3d[] = {
 	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_CI, G_IM_SIZ_8b, 4, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 5, 0),
 	gsDPSetTileSize(0, 0, 0, 124, 124),
-	gsDPSetEnvColor(254, 254, 254, 255),
 	gsSPEndDisplayList(),
 };
 
@@ -259,7 +258,7 @@ Gfx mat_revert_star_C__Users_Ally_Desktop_noesisv4428_star_body04_png_f3d[] = {
 
 Gfx mat_star_mat_eye_material_f3d[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, 1, 0, 0, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, ENVIRONMENT, 1, 0, 0, ENVIRONMENT),
+	gsDPSetCombineLERP(0, 0, 0, ENVIRONMENT, 0, 0, 0, 1, 0, 0, 0, ENVIRONMENT, 0, 0, 0, 1),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetEnvColor(0, 0, 0, 255),
 	gsSPEndDisplayList(),
