@@ -102,7 +102,7 @@ struct HudDisplay {
 extern struct HudDisplay gHudDisplay;
 extern s16 gMarioScreenX;
 extern s16 gMarioScreenY;
-extern s8 gShouldNotPlayCastleMusic;
+extern s8 gNeverEnteredCastle;
 
 enum HUDDisplayFlag {
     HUD_DISPLAY_FLAG_LIVES = 0x0001,

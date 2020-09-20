@@ -500,9 +500,9 @@ static void common_swimming_step(struct MarioState *m, s16 swimStrength) {
 }
 
 static void play_swimming_noise(struct MarioState *m) {
-    s16 animFrame = m->marioObj->header.gfx.unk38.animFrame;
+    s16 animFrame = m->marioObj->header.gfx.animInfo.animFrame;
 
-    // (this need to be on one line to match on PAL)
+    // This must be one line to match on -O2
     if (animFrame == 0 || animFrame == 12) play_sound(SOUND_ACTION_UNKNOWN434, m->marioObj->header.gfx.cameraToObject);
 }
 
@@ -918,7 +918,7 @@ s32 act_water_ground_pound(struct MarioState *m) {
         }
 
         m->actionTimer++;
-        if (m->actionTimer >= m->marioObj->header.gfx.unk38.curAnim->unk08 + 4) {
+        if (m->actionTimer >= m->marioObj->header.gfx.animInfo.curAnim->loopEnd + 4) {
             play_sound(SOUND_MARIO_GROUND_POUND_WAH, m->marioObj->header.gfx.cameraToObject);
             m->actionState = 1;
         }
@@ -1012,7 +1012,7 @@ static s32 act_drowning(struct MarioState *m) {
         case 1:
             set_mario_animation(m, MARIO_ANIM_DROWNING_PART2);
             m->marioBodyState->eyeState = MARIO_EYES_DEAD;
-            if (m->marioObj->header.gfx.unk38.animFrame == 30) {
+            if (m->marioObj->header.gfx.animInfo.animFrame == 30) {
                 level_trigger_warp(m, WARP_OP_DEATH);
             }
             break;
@@ -1349,7 +1349,7 @@ static s32 act_metal_water_walking(struct MarioState *m) {
             break;
 
         case GROUND_STEP_HIT_WALL:
-            m->forwardVel = 0;
+            m->forwardVel = 0.0f;
             break;
     }
 
